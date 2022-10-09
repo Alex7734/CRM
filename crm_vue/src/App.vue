@@ -18,7 +18,7 @@ import Navbar from '@/components/layout/Navbar'
 import axios from 'axios';
 
   export default{
-    name: 'App',
+    name: 'App',  
     components: {
       Navbar
     },
@@ -26,7 +26,7 @@ import axios from 'axios';
     beforeCreate(){
       this.$store.commit('initializeStore')
       if (this.$store.state.token){
-        axios.defaults.headers.common['Authorization'] = "Token" + this.$store.state.token
+        axios.defaults.headers.common['Authorization'] = "Token " + this.$store.state.token
       } else {
         axios.defaults.headers.common['Authorization'] = ""
       }
@@ -68,7 +68,17 @@ import axios from 'axios';
   }
 }
 
+.is-loading-bar {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 03s;
 
+  &.is-loading{
+    height: 80px;
+  }
+
+}
 
 
 </style>

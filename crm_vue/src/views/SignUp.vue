@@ -60,7 +60,10 @@ export default {
         }
     },
     methods: {
-        submitForm() {
+        async submitForm() {
+
+            this.$store.commit('setIsLoading', true)
+
             this.errors = []
             if (this.username === ""){
                 this.errors.push("The username is missing")
@@ -81,10 +84,9 @@ export default {
                 }
             
 
-                axios
+                await axios
                     .post('/api/v1/users/', formData)
                     .then(response => {
-                        console.log('here')
 
                         toast({
                             
@@ -107,6 +109,10 @@ export default {
                             this.errors.push("Something went wrong, please try again!")
                         }
                     })
+
+                this.$store.commit('setIsLoading', false)
+
+                
             }
 
         }

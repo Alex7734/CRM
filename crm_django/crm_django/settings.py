@@ -6,8 +6,18 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 CORS_ALLOWED_ORIGINS = [
-   'http://localhost:8080',
+    'http://localhost:8080',
+    'http://localhost:8081'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -19,7 +29,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'djoser'
+    'djoser',
+    'lead.apps.LeadConfig',
+
 ]
 
 MIDDLEWARE = [
