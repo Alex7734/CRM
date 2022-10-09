@@ -3,6 +3,7 @@
         <div class="columns is-multiline">
             <div class="column is-4 is-12">
                 <h1 class="title">Dashboard</h1>
+                <p>Need text here</p>
             </div>
         </div>
     </div>
